@@ -1,4 +1,5 @@
 
+# Dotnet
 
 To show info about current version of dotnet
 ```
@@ -66,3 +67,21 @@ dotnet ef database update
 to open sqlite explored 
 
 > sqlite open database# SocialApp
+
+
+# Angular
+
+To install angular 
+```
+npm install -g @angular/cli
+```
+
+check angular version
+```
+ng version
+```
+
+to start project 
+```
+ng serve
+```
