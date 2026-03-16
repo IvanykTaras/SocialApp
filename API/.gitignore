@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# My ingrations
+API/socialapp.db-shm
+API/socialapp.db-wal

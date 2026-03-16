@@ -135,6 +135,11 @@ ng g s account-service --dry-run
 ng g s account-service 
 ```
 
+to generate guard
+```
+ng g g auth
+```
+
 ### How to add local cert to your front
 
 link to resource: https://github.com/FiloSottile/mkcert
