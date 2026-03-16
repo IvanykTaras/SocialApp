@@ -18,6 +18,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
             toastService.error(JSON.stringify(error.error));
             break;
           case 404:
+            router.navigateByUrl('/not-found');
             toastService.error(JSON.stringify(error.error));
             break;
           case 500:
