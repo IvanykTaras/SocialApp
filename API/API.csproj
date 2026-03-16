@@ -19,8 +19,10 @@
     <Folder Include="Data\" />
     <Folder Include="DTO\" />
     <Folder Include="Entities\" />
+    <Folder Include="Errors\" />
     <Folder Include="Extensions\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="MIddleware\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
