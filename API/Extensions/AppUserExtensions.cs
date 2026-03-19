@@ -10,7 +10,7 @@ public static class AppUserExtensions
     {
         return new UserDTO
         {
-            Id = user.id,
+            Id = user.Id,
             Email = user.Email,
             DisplayName = user.DisplayName,
             Token = token

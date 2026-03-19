@@ -27,8 +27,7 @@ public class TokenService: ITokenService
         var claims = new List<Claim>
         {
             new(ClaimTypes.Email, user.Email),
-            new(ClaimTypes.NameIdentifier, user.id.ToString()),
-            new("DumyProperty", "DummyValue")
+            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
         };
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
