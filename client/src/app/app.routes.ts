@@ -6,6 +6,10 @@ import { Lists } from '../feature/lists/lists';
 import { Messages } from '../feature/messages/messages';
 import { authGuard } from '../core/guards/auth-guard';
 import { NotFound } from '../shared/errors/not-found/not-found';
+import { MemberProfile } from '../feature/members/member-profile/member-profile';
+import { MemberPhotos } from '../feature/members/member-photos/member-photos';
+import { MemberMessages } from '../feature/members/member-messages/member-messages';
+import { memberResolver } from '../feature/members/member-resolver';
 
 export const routes: Routes = [
     {path: '', component: Home},
@@ -15,7 +19,18 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             {path: 'members', component: MemberList},
-            {path: 'members/:id', component: MemberDetailed},
+            {
+                path: 'members/:id', 
+                resolve: {member: memberResolver},
+                runGuardsAndResolvers: 'always',
+                component: MemberDetailed,
+                children: [
+                    {path: '', redirectTo: 'profile', pathMatch: 'full'},
+                    {path: 'profile', component: MemberProfile, title: 'Profile'},
+                    {path: 'photos', component: MemberPhotos, title: 'Photos'},
+                    {path: 'messages', component: MemberMessages, title: 'Messages'},
+                ]
+            },
             {path: 'lists', component: Lists},
             {path: 'messages', component: Messages},
         ]
