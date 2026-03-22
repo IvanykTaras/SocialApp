@@ -37,7 +37,7 @@ export class AccountService {
     this.currentUser.set(null)
   }
 
-  private setCurrentUser(user: User) {
+  setCurrentUser(user: User) {
     localStorage.setItem('user', JSON.stringify(user))
     this.currentUser.set(user)
   }

@@ -21,6 +21,11 @@
             <a routerLink="/messages" routerLinkActive="text-accent">Messages</a>
             }
         </nav>
+
+        @if (busyService.busyRequestCount() > 0) {
+            <div class="loading loading-spinner text-accent"></div>
+        }
+
         <div class="flex align-middle ml-auto gap-3">
 
             <div class="dropdown mr-5 dropdown-end">
@@ -28,7 +33,7 @@
                  cursor-pointer uppercase text-xs">
                     <span>Theme: <br/>{{selectedTheme()}}</span>
                 </div>
-                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <ul tabindex="-1" class="z-50 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                     @for (theme of themes; track $index) {
                         <li><a (click)="handleSelectedTheme(theme)">{{ theme }}</a></li>
                     }
@@ -42,7 +47,7 @@
                     <span>{{ user.displayName }}</span>
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><a>Edit profile</a></li>
+                    <li><a routerLink="/members/{{user.id}}">Edit profile</a></li>
                     <li><a (click)="logout()">Logout</a></li>
                 </ul>
             </div>
