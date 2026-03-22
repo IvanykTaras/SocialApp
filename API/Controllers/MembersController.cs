@@ -71,7 +71,7 @@ namespace API.Controllers
         [HttpPost("add-photo")]
         public async Task<ActionResult<Photo>> AddPhoto([FromForm] IFormFile file)
         {
-            var member = await _memberRepository.GetMemberByIdAsync(User.GetMemberId());
+            var member = await _memberRepository.GetMemberForUpdate(User.GetMemberId());
 
             if (member == null) return BadRequest("Member not found.");
 

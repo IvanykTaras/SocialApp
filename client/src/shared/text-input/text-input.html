@@ -1,0 +1,13 @@
+<label class="floating-label">
+    <span>{{label()}}</span>
+    <input class="input w-full" 
+        [type]="type()"
+        [max]="maxDate()"
+        [class.input-error]="control.invalid && control.touched"
+        [class.input-success]="control.valid && control.touched"
+        [formControl]="control" 
+        [placeholder]="label()">
+    @if(control.hasError('required') && control.touched){
+    <div class=" text-error text-xs text-left ">{{label()}} is required</div>
+    }
+</label>

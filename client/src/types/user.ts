@@ -12,9 +12,11 @@ export type LoginCreds = {
 }
 
 export type RegisterCreds = {
-    // id: string,
     email: string,
     displayName: string,
     password: string,
-    imageUrl?: string
+    gender: string,
+    dateOfBirth: string,
+    city: string,
+    country: string
 }

@@ -51,7 +51,15 @@ namespace API.Controllers
                 Email = register.Email,
                 DisplayName = register.DisplayName,
                 PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(register.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                Member = new Member
+                {
+                    DisplayName = register.DisplayName,
+                    City = register.City,
+                    Country = register.Country,
+                    Gender = register.Gender,
+                    DateOfBirth = register.DateOfBirth
+                }
             };
 
             await _context.Users.AddAsync(user);
