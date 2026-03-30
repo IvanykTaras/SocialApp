@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using API.Extensions;
 
 namespace API.Entities;
 
@@ -24,4 +25,9 @@ public class Member
     public AppUser AppUser { get; set; } = null!;
     [JsonIgnore]
     public List<Photo> Photos { get; set; } = [];
+
+    [JsonIgnore]
+    public List<MemberLike> LikedByMembers { get; set; } = [];
+    [JsonIgnore]
+    public List<MemberLike> LikedMembers { get; set; } = [];
 }

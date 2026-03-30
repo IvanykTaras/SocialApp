@@ -3,6 +3,7 @@ using API.Data;
 using API.DTO;
 using API.Entities;
 using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
@@ -25,9 +26,12 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<AppUser>>> GetMembers()
+        public async Task<ActionResult<IReadOnlyList<AppUser>>> GetMembers(
+            [FromQuery] MemberParams memberParams
+        )
         {
-            var members = await _memberRepository.GetMembersAsync();
+            memberParams.CurrentMemberId = User.GetMemberId();
+            var members = await _memberRepository.GetMembersAsync(memberParams);
             return Ok(members);
         }
 

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from '../feature/home/home';
-import { MemberList } from '../feature/members/member-list/member-list';
+import MemberList from '../feature/members/member-list/member-list';
 import { MemberDetailed } from '../feature/members/member-detailed/member-detailed';
 import { Lists } from '../feature/lists/lists';
 import { Messages } from '../feature/messages/messages';
